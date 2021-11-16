@@ -1,0 +1,420 @@
+[33mcommit ff2d309c5385b096b329c0df0128f902570c6608[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: GreatHorizon <stas.gaisinn@gmail.com>
+Date:   Tue Nov 23 23:32:27 2021 +0300
+
+    initial commit
+
+[1mdiff --git a/.vsconfig b/.vsconfig[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d70cd98[m
+[1m--- /dev/null[m
+[1m+++ b/.vsconfig[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m﻿{[m
+[32m+[m[32m  "version": "1.0",[m
+[32m+[m[32m  "components": [[m
+[32m+[m[32m    "Microsoft.VisualStudio.Workload.ManagedGame"[m
+[32m+[m[32m  ][m
+[32m+[m[32m}[m
+[1mdiff --git a/Assets/Editor/Vuforia/ImageTargetTextures/aliens/cannon1_scaled.jpg b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/cannon1_scaled.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6653830[m
+Binary files /dev/null and b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/cannon1_scaled.jpg differ
+[1mdiff --git a/Assets/Editor/Vuforia/ImageTargetTextures/aliens/cannon1_scaled.jpg.meta b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/cannon1_scaled.jpg.meta[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f6479f4[m
+[1m--- /dev/null[m
+[1m+++ b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/cannon1_scaled.jpg.meta[m
+[36m@@ -0,0 +1,144 @@[m
+[32m+[m[32mfileFormatVersion: 2[m
+[32m+[m[32mguid: f9135f7e76984f459023356677b740ec[m
+[32m+[m[32mTextureImporter:[m
+[32m+[m[32m  internalIDToNameTable: [][m
+[32m+[m[32m  externalObjects: {}[m
+[32m+[m[32m  serializedVersion: 11[m
+[32m+[m[32m  mipmaps:[m
+[32m+[m[32m    mipMapMode: 0[m
+[32m+[m[32m    enableMipMap: 1[m
+[32m+[m[32m    sRGBTexture: 1[m
+[32m+[m[32m    linearTexture: 0[m
+[32m+[m[32m    fadeOut: 0[m
+[32m+[m[32m    borderMipMap: 0[m
+[32m+[m[32m    mipMapsPreserveCoverage: 0[m
+[32m+[m[32m    alphaTestReferenceValue: 0.5[m
+[32m+[m[32m    mipMapFadeDistanceStart: 1[m
+[32m+[m[32m    mipMapFadeDistanceEnd: 3[m
+[32m+[m[32m  bumpmap:[m
+[32m+[m[32m    convertToNormalMap: 0[m
+[32m+[m[32m    externalNormalMap: 0[m
+[32m+[m[32m    heightScale: 0.25[m
+[32m+[m[32m    normalMapFilter: 0[m
+[32m+[m[32m  isReadable: 0[m
+[32m+[m[32m  streamingMipmaps: 0[m
+[32m+[m[32m  streamingMipmapsPriority: 0[m
+[32m+[m[32m  vTOnly: 0[m
+[32m+[m[32m  grayScaleToAlpha: 0[m
+[32m+[m[32m  generateCubemap: 6[m
+[32m+[m[32m  cubemapConvolution: 0[m
+[32m+[m[32m  seamlessCubemap: 0[m
+[32m+[m[32m  textureFormat: 1[m
+[32m+[m[32m  maxTextureSize: 2048[m
+[32m+[m[32m  textureSettings:[m
+[32m+[m[32m    serializedVersion: 2[m
+[32m+[m[32m    filterMode: 1[m
+[32m+[m[32m    aniso: 1[m
+[32m+[m[32m    mipBias: 0[m
+[32m+[m[32m    wrapU: 0[m
+[32m+[m[32m    wrapV: 0[m
+[32m+[m[32m    wrapW: 0[m
+[32m+[m[32m  nPOTScale: 1[m
+[32m+[m[32m  lightmap: 0[m
+[32m+[m[32m  compressionQuality: 50[m
+[32m+[m[32m  spriteMode: 0[m
+[32m+[m[32m  spriteExtrude: 1[m
+[32m+[m[32m  spriteMeshType: 1[m
+[32m+[m[32m  alignment: 0[m
+[32m+[m[32m  spritePivot: {x: 0.5, y: 0.5}[m
+[32m+[m[32m  spritePixelsToUnits: 100[m
+[32m+[m[32m  spriteBorder: {x: 0, y: 0, z: 0, w: 0}[m
+[32m+[m[32m  spriteGenerateFallbackPhysicsShape: 1[m
+[32m+[m[32m  alphaUsage: 1[m
+[32m+[m[32m  alphaIsTransparency: 0[m
+[32m+[m[32m  spriteTessellationDetail: -1[m
+[32m+[m[32m  textureType: 0[m
+[32m+[m[32m  textureShape: 1[m
+[32m+[m[32m  singleChannelComponent: 0[m
+[32m+[m[32m  flipbookRows: 1[m
+[32m+[m[32m  flipbookColumns: 1[m
+[32m+[m[32m  maxTextureSizeSet: 0[m
+[32m+[m[32m  compressionQualitySet: 0[m
+[32m+[m[32m  textureFormatSet: 0[m
+[32m+[m[32m  ignorePngGamma: 0[m
+[32m+[m[32m  applyGammaDecoding: 1[m
+[32m+[m[32m  platformSettings:[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: DefaultTexturePlatform[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: Android[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: iPhone[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: Lumin[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: Windows Store Apps[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  spriteSheet:[m
+[32m+[m[32m    serializedVersion: 2[m
+[32m+[m[32m    sprites: [][m
+[32m+[m[32m    outline: [][m
+[32m+[m[32m    physicsShape: [][m
+[32m+[m[32m    bones: [][m
+[32m+[m[32m    spriteID:[m[41m [m
+[32m+[m[32m    internalID: 0[m
+[32m+[m[32m    vertices: [][m
+[32m+[m[32m    indices:[m[41m [m
+[32m+[m[32m    edges: [][m
+[32m+[m[32m    weights: [][m
+[32m+[m[32m    secondaryTextures: [][m
+[32m+[m[32m  spritePackingTag:[m[41m [m
+[32m+[m[32m  pSDRemoveMatte: 0[m
+[32m+[m[32m  pSDShowRemoveMatteOption: 0[m
+[32m+[m[32m  userData:[m[41m [m
+[32m+[m[32m  assetBundleName:[m[41m [m
+[32m+[m[32m  assetBundleVariant:[m[41m [m
+[1mdiff --git a/Assets/Editor/Vuforia/ImageTargetTextures/aliens/castle_scaled.jpg b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/castle_scaled.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1f3b5a4[m
+Binary files /dev/null and b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/castle_scaled.jpg differ
+[1mdiff --git a/Assets/Editor/Vuforia/ImageTargetTextures/aliens/castle_scaled.jpg.meta b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/castle_scaled.jpg.meta[m
+[1mnew file mode 100644[m
+[1mindex 0000000..853be39[m
+[1m--- /dev/null[m
+[1m+++ b/Assets/Editor/Vuforia/ImageTargetTextures/aliens/castle_scaled.jpg.meta[m
+[36m@@ -0,0 +1,144 @@[m
+[32m+[m[32mfileFormatVersion: 2[m
+[32m+[m[32mguid: 1c07578a41aa4f20bad7efe9144ecfbd[m
+[32m+[m[32mTextureImporter:[m
+[32m+[m[32m  internalIDToNameTable: [][m
+[32m+[m[32m  externalObjects: {}[m
+[32m+[m[32m  serializedVersion: 11[m
+[32m+[m[32m  mipmaps:[m
+[32m+[m[32m    mipMapMode: 0[m
+[32m+[m[32m    enableMipMap: 1[m
+[32m+[m[32m    sRGBTexture: 1[m
+[32m+[m[32m    linearTexture: 0[m
+[32m+[m[32m    fadeOut: 0[m
+[32m+[m[32m    borderMipMap: 0[m
+[32m+[m[32m    mipMapsPreserveCoverage: 0[m
+[32m+[m[32m    alphaTestReferenceValue: 0.5[m
+[32m+[m[32m    mipMapFadeDistanceStart: 1[m
+[32m+[m[32m    mipMapFadeDistanceEnd: 3[m
+[32m+[m[32m  bumpmap:[m
+[32m+[m[32m    convertToNormalMap: 0[m
+[32m+[m[32m    externalNormalMap: 0[m
+[32m+[m[32m    heightScale: 0.25[m
+[32m+[m[32m    normalMapFilter: 0[m
+[32m+[m[32m  isReadable: 0[m
+[32m+[m[32m  streamingMipmaps: 0[m
+[32m+[m[32m  streamingMipmapsPriority: 0[m
+[32m+[m[32m  vTOnly: 0[m
+[32m+[m[32m  grayScaleToAlpha: 0[m
+[32m+[m[32m  generateCubemap: 6[m
+[32m+[m[32m  cubemapConvolution: 0[m
+[32m+[m[32m  seamlessCubemap: 0[m
+[32m+[m[32m  textureFormat: 1[m
+[32m+[m[32m  maxTextureSize: 2048[m
+[32m+[m[32m  textureSettings:[m
+[32m+[m[32m    serializedVersion: 2[m
+[32m+[m[32m    filterMode: 1[m
+[32m+[m[32m    aniso: 1[m
+[32m+[m[32m    mipBias: 0[m
+[32m+[m[32m    wrapU: 0[m
+[32m+[m[32m    wrapV: 0[m
+[32m+[m[32m    wrapW: 0[m
+[32m+[m[32m  nPOTScale: 1[m
+[32m+[m[32m  lightmap: 0[m
+[32m+[m[32m  compressionQuality: 50[m
+[32m+[m[32m  spriteMode: 0[m
+[32m+[m[32m  spriteExtrude: 1[m
+[32m+[m[32m  spriteMeshType: 1[m
+[32m+[m[32m  alignment: 0[m
+[32m+[m[32m  spritePivot: {x: 0.5, y: 0.5}[m
+[32m+[m[32m  spritePixelsToUnits: 100[m
+[32m+[m[32m  spriteBorder: {x: 0, y: 0, z: 0, w: 0}[m
+[32m+[m[32m  spriteGenerateFallbackPhysicsShape: 1[m
+[32m+[m[32m  alphaUsage: 1[m
+[32m+[m[32m  alphaIsTransparency: 0[m
+[32m+[m[32m  spriteTessellationDetail: -1[m
+[32m+[m[32m  textureType: 0[m
+[32m+[m[32m  textureShape: 1[m
+[32m+[m[32m  singleChannelComponent: 0[m
+[32m+[m[32m  flipbookRows: 1[m
+[32m+[m[32m  flipbookColumns: 1[m
+[32m+[m[32m  maxTextureSizeSet: 0[m
+[32m+[m[32m  compressionQualitySet: 0[m
+[32m+[m[32m  textureFormatSet: 0[m
+[32m+[m[32m  ignorePngGamma: 0[m
+[32m+[m[32m  applyGammaDecoding: 1[m
+[32m+[m[32m  platformSettings:[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: DefaultTexturePlatform[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: Android[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: iPhone[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: Lumin[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  - serializedVersion: 3[m
+[32m+[m[32m    buildTarget: Windows Store Apps[m
+[32m+[m[32m    maxTextureSize: 2048[m
+[32m+[m[32m    resizeAlgorithm: 0[m
+[32m+[m[32m    textureFormat: -1[m
+[32m+[m[32m    textureCompression: 0[m
+[32m+[m[32m    compressionQuality: 50[m
+[32m+[m[32m    crunchedCompression: 0[m
+[32m+[m[32m    allowsAlphaSplitting: 0[m
+[32m+[m[32m    overridden: 0[m
+[32m+[m[32m    androidETC2FallbackOverride: 0[m
+[32m+[m[32m    forceMaximumCompressionQuality_BC6H_BC7: 0[m
+[32m+[m[32m  spriteSheet:[m
+[32m+[m[32m    serializedVersion: 2[m
+[32m+[m[32m    sprites: [][m
+[32m+[m[32m    outline: [][m
+[32m+[m[32m    physicsShape: [][m
+[32m+[m[32m    bones: [][m
+[32m+[m[32m    spriteID:[m[41m [m
+[32m+[m[32m    internalID: 0[m
+[32m+[m[32m    vertices: [][m
+[32m+[m[32m    indices:[m[41m [m
+[32m+[m[32m    edges: [][m
+[32m+[m[32m    weights: [][m
+[32m+[m[32m    secondaryTextures: [][m
+[32m+[m[32m  spritePackingTag:[m[41m [m
+[32m+[m[32m  pSDRemoveMatte: 0[m
+[32m+[m[32m  pSDShowRemoveMatteOption: 0[m
+[32m+[m[32m  userData:[m[41m [m
+[32m+[m[32m  assetBundleName:[m[41m [m
+[32m+[m[32m  assetBundleVariant:[m[41m [m
+[1mdiff --git a/Assets/Scenes/scripts.meta b/Assets/Scenes/scripts.meta[m
+[1mnew file mode 100644[m
+[1mindex 0000000..02f2f13[m
+[1m--- /dev/null[m
+[1m+++ b/Assets/Scenes/scripts.meta[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mfileFormatVersion: 2[m
+[32m+[m[32mguid: e7bb6f62e78ee0e4da35caffe325462c[m
+[32m+[m[32mfolderAsset: yes[m
+[32m+[m[32mDefaultImporter:[m
+[32m+[m[32m  externalObjects: {}[m
+[32m+[m[32m  userData:[m[41m [m
+[32m+[m[32m  assetBundleName:[m[41m [m
+[32m+[m[32m  assetBundleVariant:[m[41m [m
+[1mdiff --git a/Assets/Scenes/scripts/StartButtonScript.cs b/Assets/Scenes/scripts/StartButtonScript.cs[m
+[1mnew file mode 100644[m
+[1mindex 0000000..25bb4f2[m
+[1m--- /dev/null[m
+[1m+++ b/Assets/Scenes/scripts/StartButtonScript.cs[m
+[36m@@ -0,0 +1,57 @@[m
+[32m+[m[32musing System.Collections;[m
+[32m+[m[32musing System.Collections.Generic;[m
+[32m+[m[32musing UnityEngine;[m
+[32m+[m[32musing UnityEngine.UI;[m
+[32m+[m
+[32m+[m[32mpublic class StartButtonScript : MonoBehaviour[m
+[32m+[m[32m{[m
+[32m+[m[32m    [SerializeField][m
+[32m+[m[32m    private Button button;[m
+[32m+[m
+[32m+[m[32m    [SerializeField][m
+[32m+[m[32m    private GameObject alien;[m[41m    [m
+[32m+[m[41m    [m
+[32m+[m[41m    [m
+[32m+[m[32m    [SerializeField][m
+[32m+[m[32m    private GameObject ship;[m[41m    [m
+[32m+[m
+[32m+[m[32m    [SerializeField][m
+[32m+[m[32m    private GameObject tower;[m[41m    [m
+[32m+[m
+[32m+[m[32m    [SerializeField][m
+[32m+[m[32m    private GameObject cannon;[m
+[32m+[m
+[32m+[m[32m    // Start is called before the first frame update[m
+[32m+[m[32m    void Start()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        button.GetComponent<Button>().onClick.AddListener(() => {[m
+[32m+[m[32m            Vector3 towerPositon = tower.transform.position;[m
+[32m+[m[32m            Vector3 shipPosition = towerPositon;[m
+[32m+[m[32m            towerPositon.x = towerPositon.x + 0.1f;[m
+[32m+[m
+[32m+[m[32m            shipPosition.x = towerPositon.x + 0.1f;[m
+[32m+[m[32m            shipPosition.y = towerPositon.y + 0.1f;[m
+[32m+[m
+[32m+[m[32m   /*       towerPositon.y = towerPositon.y + 0.05f;[m
+[32m+[m[32m            towerPositon.z = towerPositon.z + 0.05f;*/[m
+[32m+[m
+[32m+[m[32m            GameObject alienObject = Instantiate(alien);[m
+[32m+[m[32m            GameObject shipObject = Instantiate(ship);[m
+[32m+[m
+[32m+[m[32m            alienObject.transform.position = towerPositon;[m
+[32m+[m[32m            shipObject.transform.position = shipPosition;[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m            Debug.Log("d");[m
+[32m+[m[32m        });[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    // Update is called once per frame[m
+[32m+[m[32m    void Update()[m
+[32m+[m[32m    {[m
+[32m+[m[41m        [m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/Assets/Scenes/scripts/StartButtonScript.cs.meta b/Assets/Scenes/scripts/StartButtonScript.cs.meta[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3ff69f0[m
+[1m--- /dev/null[m
+[1m+++ b/Assets/Scenes/scripts/StartButtonScript.cs.meta[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32mfileFormatVersion: 2[m
+[32m+[m[32mguid: 439b897472d0758459f9761dd72feca6[m
+[32m+[m[32mMonoImporter:[m
+[32m+[m[32m  externalObjects: {}[m
+[32m+[m[32m  serializedVersion: 2[m
+[32m+[m[32m  defaultReferences: [][m
+[32m+[m[32m  executionOrder: 0[m
+[32m+[m[32m  icon: {instanceID: 0}[m
+[32m+[m[32m  userData:[m[41m [m
+[32m+[m[32m  assetBundleName:[m[41m [m
+[32m+[m[32m  assetBundleVariant:[m[41m [m
