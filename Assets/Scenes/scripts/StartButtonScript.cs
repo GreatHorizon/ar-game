@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scenes.scripts;
 
 public class StartButtonScript : MonoBehaviour
 {
@@ -9,48 +10,50 @@ public class StartButtonScript : MonoBehaviour
     private Button button;
 
     [SerializeField]
-    private GameObject alien;    
-    
-    
+    private GameObject ship;
     [SerializeField]
-    private GameObject ship;    
-
-    [SerializeField]
-    private GameObject tower;    
-
+    private GameObject towerTarget;
     [SerializeField]
     private GameObject cannon;
+    [SerializeField] 
+    private GameObject towerPrefab;
+    private SmoothMovement movement = new SmoothMovement();
 
     // Start is called before the first frame update
     void Start()
     {
         button.GetComponent<Button>().onClick.AddListener(() => {
-            Vector3 towerPositon = tower.transform.position;
+            button.enabled = false;
+            var towerObj = towerTarget.transform.GetChild(0).gameObject;
+            Vector3 towerPositon = towerObj.transform.position;
+            var towerRotation = towerObj.transform.rotation;
             Vector3 shipPosition = towerPositon;
-            towerPositon.x = towerPositon.x + 0.1f;
+            var tower = Instantiate(towerPrefab);
+            tower.transform.position = towerPositon;
+            tower.transform.rotation = towerRotation;
+            Destroy(towerTarget);
 
-            shipPosition.x = towerPositon.x + 0.1f;
-            shipPosition.y = towerPositon.y + 0.1f;
+            shipPosition.x = towerPositon.x + 0.3f;
+            shipPosition.y = towerPositon.y + 0.4f;
 
-   /*       towerPositon.y = towerPositon.y + 0.05f;
-            towerPositon.z = towerPositon.z + 0.05f;*/
 
-            GameObject alienObject = Instantiate(alien);
             GameObject shipObject = Instantiate(ship);
-
-            alienObject.transform.position = towerPositon;
+            SmoothMovementShip movementShip = shipObject.GetComponent<SmoothMovementShip>();
+            movementShip.PassTower(tower);
             shipObject.transform.position = shipPosition;
+            movementShip.Move(shipObject.transform, new Vector3(shipPosition.x, tower.transform.position.y, shipPosition.z));
 
-
-
-            Debug.Log("d");
         });
+    }
+
+    void UntargetObject()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
 
