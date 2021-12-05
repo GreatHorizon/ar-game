@@ -30,7 +30,7 @@ namespace Assets.Scenes.scripts
             {
                 //keep existing "y" rotation and set "x" and "z" rotation from intitalRotation
                 transform.LookAt(dest);
-                transform.position += transform.forward * Time.deltaTime * 0.15f;
+                transform.position += transform.forward * Time.deltaTime * 0.015f;
             }
             else
             {

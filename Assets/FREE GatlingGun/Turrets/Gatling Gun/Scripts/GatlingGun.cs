@@ -29,38 +29,38 @@ public class GatlingGun : MonoBehaviour
     void Start()
     {
         // Set the firing range distance
-        this.GetComponent<SphereCollider>().radius = firingRange;
+        //this.GetComponent<SphereCollider>().radius = firingRange;
     }
 
     void Update()
     {
-        AimAndFire();
+        //AimAndFire();
     }
 
     void OnDrawGizmosSelected()
     {
         // Draw a red sphere at the transform's position to show the firing range
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, firingRange);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, firingRange);
     }
 
     // Detect an Enemy, aim and fire
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+/*        if (other.gameObject.tag == "Enemy")
         {
             go_target = other.transform;
             canFire = true;
-        }
+        }*/
 
     }
     // Stop firing
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+/*        if (other.gameObject.tag == "Enemy")
         {
             canFire = false;
-        }
+        }*/
     }
 
     void AimAndFire()
