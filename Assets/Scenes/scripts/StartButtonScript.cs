@@ -8,6 +8,10 @@ public class StartButtonScript : MonoBehaviour
 {
     [SerializeField]
     private Button button;
+    [SerializeField]
+    private Text text;
+    [SerializeField]
+    private Text closeText;
 
     [SerializeField]
     private GameObject ship;
@@ -32,6 +36,13 @@ public class StartButtonScript : MonoBehaviour
             var tower = Instantiate(towerPrefab);
             tower.transform.position = towerPositon;
             tower.transform.rotation = towerRotation;
+            tower.GetComponent<Destoyer>().SetText(text);
+            tower.GetComponent<Destoyer>().SetLoseText(closeText);
+
+            GameObject towerTop = tower.transform.Find("Tower_Top").gameObject;
+            towerTop.GetComponent<SmoothRotation>().Move(cannon.transform);
+
+
             Destroy(towerTarget);
 
             shipPosition1.x = towerPositon.x + 0.15f;

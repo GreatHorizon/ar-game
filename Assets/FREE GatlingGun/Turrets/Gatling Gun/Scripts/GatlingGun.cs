@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Assets.Scenes.scripts;
 public class GatlingGun : MonoBehaviour
 {
     // target the gun will aim at
+    [SerializeField]
     Transform go_target;
+
+
+
+    [SerializeField]
+    GameObject bullet;
 
     // Gameobjects need to control rotation and aiming
     public Transform go_baseRotation;
@@ -23,63 +29,89 @@ public class GatlingGun : MonoBehaviour
     public ParticleSystem muzzelFlash;
 
     // Used to start and stop the turret firing
-    bool canFire = false;
+    bool canFire = true;
+    bool started = false;
 
     
     void Start()
     {
         // Set the firing range distance
-        //this.GetComponent<SphereCollider>().radius = firingRange;
+        this.GetComponent<SphereCollider>().radius = firingRange;
     }
 
     void Update()
     {
-        //AimAndFire();
+        AimAndFire();
     }
 
     void OnDrawGizmosSelected()
     {
         // Draw a red sphere at the transform's position to show the firing range
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(transform.position, firingRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, firingRange);
     }
 
     // Detect an Enemy, aim and fire
     void OnTriggerEnter(Collider other)
     {
-/*        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             go_target = other.transform;
             canFire = true;
-        }*/
+        }
 
     }
     // Stop firing
     void OnTriggerExit(Collider other)
     {
-/*        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             canFire = false;
-        }*/
+        }
+    }
+
+
+    public IEnumerator SpawnBulletWithDelay()
+    {
+        started = true;
+        while (true)
+        {
+            GameObject bulletObj = Instantiate(bullet);
+            bulletObj.transform.position = go_barrel.position + new Vector3(0, 0, 0);
+            SmoothMovement movement = bulletObj.GetComponent<SmoothMovement>();
+            movement.Move(go_barrel.transform.forward);
+            yield return new WaitForSeconds(0.7f);
+        }
+
     }
 
     void AimAndFire()
     {
         // Gun barrel rotation
         go_barrel.transform.Rotate(0, 0, currentRotationSpeed * Time.deltaTime);
+        
+        
+        if (!started) {
+            StartCoroutine(SpawnBulletWithDelay());
+        }
+
 
         // if can fire turret activates
-        if (canFire)
+        /*if (canFire)
         {
             // start rotation
             currentRotationSpeed = barrelRotationSpeed;
 
-            // aim at enemy
-            Vector3 baseTargetPostition = new Vector3(go_target.position.x, this.transform.position.y, go_target.position.z);
-            Vector3 gunBodyTargetPostition = new Vector3(go_target.position.x, go_target.position.y, go_target.position.z);
 
-            go_baseRotation.transform.LookAt(baseTargetPostition);
-            go_GunBody.transform.LookAt(gunBodyTargetPostition);
+            // aim at enemy
+            if (go_target != null)
+            {
+                Vector3 baseTargetPostition = new Vector3(go_target.position.x, this.transform.position.y, go_target.position.z);
+                Vector3 gunBodyTargetPostition = new Vector3(go_target.position.x, go_target.position.y, go_target.position.z);
+                go_baseRotation.transform.LookAt(baseTargetPostition);
+                go_GunBody.transform.LookAt(gunBodyTargetPostition);
+            }
+
 
             // start particle system 
             if (!muzzelFlash.isPlaying)
@@ -97,6 +129,6 @@ public class GatlingGun : MonoBehaviour
             {
                 muzzelFlash.Stop();
             }
-        }
+        }*/
     }
 }

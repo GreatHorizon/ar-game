@@ -40,10 +40,10 @@ namespace Assets.Scenes.scripts
                 float newPositionY = (float)Mathf.Lerp(target.position.y, b.y, 5 * 0.01f);
                 target.position = new Vector3(newPositionX, newPositionY, b.z);
             } else if (!started){
-                StartCoroutine(HERE());
+                StartCoroutine(SpawnAliens());
             }
         }
-        public IEnumerator HERE()
+        public IEnumerator SpawnAliens()
         {
             started = true;
             while (true)
@@ -53,9 +53,9 @@ namespace Assets.Scenes.scripts
 
                 Vector3 towerPos = tower.transform.position;
                 SmoothMovement movement = alienObj.GetComponent<SmoothMovement>();
-                alienObj.transform.position = transform.position + new Vector3(0f, -0.025f, 0f);
+                alienObj.transform.position = transform.position;
                 movement.Move(towerPos);
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(2.0f);
             }
 
         }

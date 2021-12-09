@@ -15,9 +15,15 @@ namespace Assets.Scenes.scripts
         Vector3 dest;
         private Quaternion initialRotation;
 
+        [SerializeField]
+        private float _speed = 0.015f;
+
+
         public void Move(Vector3 dest)
         {
             this.dest = dest;
+            transform.LookAt(dest);
+           //transform.position;
         }
 
         public void Start()
@@ -29,13 +35,9 @@ namespace Assets.Scenes.scripts
             if (transform.position != dest)
             {
                 //keep existing "y" rotation and set "x" and "z" rotation from intitalRotation
-                transform.LookAt(dest);
-                transform.position += transform.forward * Time.deltaTime * 0.015f;
-            }
-            else
-            {
-                Destroy(gameObject);
-                Debug.Log("destroy");
+                transform.position += new Vector3(transform.forward.x, 0, transform.forward.z) * Time.deltaTime * _speed;
+                Debug.Log("position: " + transform.position.ToString());        
+                Debug.Log("forward: " + transform.forward.ToString());
             }
         }
 
