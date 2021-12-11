@@ -5,22 +5,28 @@ using UnityEngine;
 public class SmoothRotation : MonoBehaviour
 {
     // Start is called before the first frame update
+    Quaternion _rotation;
 
     Transform dest;
     void Start()
     {
-        
+
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
-
         if (dest != null)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, dest.rotation, 0.5f * Time.deltaTime);
-            //keep existing "y" rotation and set "x" and "z" rotation from intitalRotation
+            Debug.Log("look at");
+            transform.LookAt(dest.position);
+            //var lookPos = dest.position - transform.position;
+/*            _rotation = Quaternion.LookRotation(lookPos);
 
+            transform.rotation = Quaternion.Slerp(transform.rotation, new Quaternion(transform.rotation.x, _rotation.y, transform.rotation.z, transform.rotation.w)
+                , 2 * Time.deltaTime);*/
         }
     }
 

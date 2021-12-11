@@ -113,7 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdc7c4ffb8a8364287870e92051726e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2047356020297647899, guid: 8422fa891062aec46bb080fc1ff92a1c, type: 3}
+  _loseText: {fileID: 2047356020297647899, guid: 8422fa891062aec46bb080fc1ff92a1c, type: 3}
+  _ball: {fileID: 862653708987034596, guid: 64471a542defe3f4ead15cdf1b9758e9, type: 3}
 --- !u!114 &1430705489460390784
 MonoBehaviour:
   m_ObjectHideFlags: 0

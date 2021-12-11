@@ -22,7 +22,6 @@ public class BulletDestoyer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("here");
         if (other.gameObject.tag != "Cannon" && other.gameObject.tag != "Tower")
         {
             if (other.gameObject.tag == "Alien")
@@ -32,7 +31,6 @@ public class BulletDestoyer : MonoBehaviour
                 _anim.Play("Dead");
                 Destroy(other.gameObject.GetComponent<SmoothMovement>());
                 StartCoroutine(CheckAnimationCompleted("Dead", other.gameObject));
-                Destroy(other.gameObject);
             }
         }
     }

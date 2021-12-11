@@ -88,7 +88,7 @@ public class GatlingGun : MonoBehaviour
     void AimAndFire()
     {
         // Gun barrel rotation
-        go_barrel.transform.Rotate(0, 0, currentRotationSpeed * Time.deltaTime);
+        //go_barrel.transform.Rotate(0, 0, currentRotationSpeed * Time.deltaTime);
         
         
         if (!started) {

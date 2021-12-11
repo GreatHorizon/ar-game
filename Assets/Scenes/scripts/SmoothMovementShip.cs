@@ -21,7 +21,7 @@ namespace Assets.Scenes.scripts
 
         private GameObject tower;
         bool started = false;
-
+        private int aliensAmount = 10;
         public void Move(Transform target, Vector3 b)
         {
             this.target = target;
@@ -46,7 +46,7 @@ namespace Assets.Scenes.scripts
         public IEnumerator SpawnAliens()
         {
             started = true;
-            while (true)
+            for (int i = 0; i < aliensAmount; i++)
             {
                 GameObject alienObj = Instantiate(alien);
                 alienObj.transform.LookAt(tower.transform.position);

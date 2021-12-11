@@ -39,8 +39,11 @@ public class StartButtonScript : MonoBehaviour
             tower.GetComponent<Destoyer>().SetText(text);
             tower.GetComponent<Destoyer>().SetLoseText(closeText);
 
-            GameObject towerTop = tower.transform.Find("Tower_Top").gameObject;
-            towerTop.GetComponent<SmoothRotation>().Move(cannon.transform);
+            tower.GetComponent<Destoyer>().SetTower(tower);
+            tower.GetComponent<Destoyer>().SetCannon(cannon);
+            
+
+            //towerTop.GetComponent<SmoothRotation>().Move(cannon.transform);
 
 
             Destroy(towerTarget);

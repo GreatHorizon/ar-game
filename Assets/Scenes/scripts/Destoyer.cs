@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Assets.Scenes.scripts;
 
 public class Destoyer : MonoBehaviour
 {
@@ -10,9 +11,17 @@ public class Destoyer : MonoBehaviour
 
 
     private Text _text;
+    bool isGameOver = false;
 
     [SerializeField]
     private Text _loseText;
+
+    private GameObject _tower;
+
+    private GameObject _cannon;
+
+    [SerializeField]
+    private GameObject _ball;
 
     public void SetText(Text text)
     {
@@ -22,25 +31,44 @@ public class Destoyer : MonoBehaviour
     {
         _loseText = text;
     }
-
-    private void OnCollisionEnter(Collision collision)
+    public void SetTower(GameObject tower)
     {
-        Destroy(collision.gameObject);
+        _tower = tower;
     }
+    public void SetCannon(GameObject cannon)
+    {
+        _cannon = cannon;
+    }
+
+    private void ShootToCannon()
+    {
+
+        GameObject towerTop = _tower.transform.Find("Tower_Top").gameObject;
+        towerTop.GetComponent<SmoothRotation>().Move(_cannon.transform);
+
+        Vector3 towerTopPos = towerTop.transform.position;
+        GameObject ball = Instantiate(_ball);
+        ball.transform.position = towerTopPos;
+        ball.GetComponent<SmoothMovement>().Move(_cannon.transform.position);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Alien")
         {
             Destroy(other.gameObject);
             int i = Convert.ToInt32(_text.text);
-            if (i <= 0)
+            if (i <= 0 && !isGameOver)
             {
+                isGameOver = true;
                 _loseText.gameObject.SetActive(true);
+                ShootToCannon();
                 return;
             }
             _text.text = (--i).ToString();
 
-        } else if (other.gameObject.tag == "Tower")
+        } 
+        else if (other.gameObject.tag == "Bullet")
         {
             Destroy(other.gameObject);
         }
