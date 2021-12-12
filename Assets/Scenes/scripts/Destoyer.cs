@@ -49,8 +49,9 @@ public class Destoyer : MonoBehaviour
 
         Vector3 towerTopPos = towerTop.transform.position;
         GameObject ball = Instantiate(_ball);
-        ball.transform.position = towerTopPos;
-        ball.GetComponent<SmoothMovement>().Move(_cannon.transform.position);
+        ball.transform.position = towerTopPos + new Vector3(0, 0.015f, 0);
+        ball.GetComponent<SmoothMovementBall>().Move(_cannon.transform.position);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,15 +60,17 @@ public class Destoyer : MonoBehaviour
         {
             Destroy(other.gameObject);
             int i = Convert.ToInt32(_text.text);
-            if (i <= 0 && !isGameOver)
+            if (i <= 1 && !isGameOver)
             {
                 isGameOver = true;
                 _loseText.gameObject.SetActive(true);
                 ShootToCannon();
                 return;
             }
-            _text.text = (--i).ToString();
-
+            if (i > 1)
+            {
+                _text.text = (--i).ToString();
+            }
         } 
         else if (other.gameObject.tag == "Bullet")
         {

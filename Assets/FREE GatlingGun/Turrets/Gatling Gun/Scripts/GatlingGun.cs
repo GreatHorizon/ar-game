@@ -17,6 +17,7 @@ public class GatlingGun : MonoBehaviour
     public Transform go_baseRotation;
     public Transform go_GunBody;
     public Transform go_barrel;
+    private Vector3 _tower;
 
     // Gun barrel rotation
     public float barrelRotationSpeed;
@@ -79,10 +80,16 @@ public class GatlingGun : MonoBehaviour
             GameObject bulletObj = Instantiate(bullet);
             bulletObj.transform.position = go_barrel.position;
             SmoothMovement movement = bulletObj.GetComponent<SmoothMovement>();
+            movement.SetTower(_tower);
             movement.Move(go_barrel.transform.forward);
             yield return new WaitForSeconds(0.7f);
         }
 
+    }
+
+    public void SetTower(Vector3 tower)
+    {
+        _tower = tower;
     }
 
     void AimAndFire()

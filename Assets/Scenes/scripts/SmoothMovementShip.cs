@@ -54,9 +54,9 @@ namespace Assets.Scenes.scripts
                 Vector3 towerPos = tower.transform.position;
 
                 SmoothMovement movement = alienObj.GetComponent<SmoothMovement>();
-                alienObj.transform.position = transform.position;
+                alienObj.transform.position = new Vector3(transform.position.x, tower.transform.position.y, transform.position.z);
                 movement.Move(towerPos);
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(2.5f);
             }
 
         }

@@ -1,9 +1,10 @@
-using Assets.Scenes.scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.UI;
+using System;
+using Assets.Scenes.scripts;
+using UnityEngine.SceneManagement;
 
 public class BulletDestoyer : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class BulletDestoyer : MonoBehaviour
     
     private Animator _anim;
     private int amount = 20;
+
+    [SerializeField]
+    private Text _wonText;
 
     void Start()
     {
@@ -37,6 +41,12 @@ public class BulletDestoyer : MonoBehaviour
 
                 Destroy(this.transform.gameObject);
                 Destroy(other.gameObject, _anim.GetCurrentAnimatorStateInfo(0).length + 1.5f);
+                amount--;
+
+                if (amount == 0)
+                {
+                    _wonText.gameObject.SetActive(true);
+                }
 
             }
         }

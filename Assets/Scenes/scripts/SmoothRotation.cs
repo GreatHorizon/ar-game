@@ -21,7 +21,7 @@ public class SmoothRotation : MonoBehaviour
         if (dest != null)
         {
             Debug.Log("look at");
-            transform.LookAt(dest.position);
+            transform.LookAt(new Vector3(dest.position.x, transform.position.y, dest.position.z));
             //var lookPos = dest.position - transform.position;
 /*            _rotation = Quaternion.LookRotation(lookPos);
 

@@ -20,6 +20,8 @@ public class StartButtonScript : MonoBehaviour
     private GameObject towerTarget;
     [SerializeField]
     private GameObject cannon;
+    [SerializeField]
+    private GameObject cannonEarth;
     [SerializeField] 
     private GameObject towerPrefab;
     private SmoothMovement movement = new SmoothMovement();
@@ -41,6 +43,7 @@ public class StartButtonScript : MonoBehaviour
             childTower.GetComponent<Destoyer>().SetText(text);
             childTower.GetComponent<Destoyer>().SetLoseText(closeText);
             childTower.GetComponent<Destoyer>().SetTower(childTower.gameObject);
+
             childTower.GetComponent<Destoyer>().SetCannon(cannon);
             
 
@@ -49,11 +52,11 @@ public class StartButtonScript : MonoBehaviour
 
             Destroy(towerTarget);
 
-            shipPosition1.x = towerPositon.x + 0.15f;
-            shipPosition1.y = towerPositon.y + 0.3f;
+            shipPosition1.x = towerPositon.x + 0.25f;
+            shipPosition1.y = towerPositon.y + 0.35f;
 
-            shipPosition2.x = towerPositon.x - 0.15f;
-            shipPosition2.y = towerPositon.y + 0.3f;
+            shipPosition2.x = towerPositon.x - 0.25f;
+            shipPosition2.y = towerPositon.y + 0.35f;
 
 
             GameObject shipObject1 = Instantiate(ship);
@@ -66,10 +69,12 @@ public class StartButtonScript : MonoBehaviour
             shipObject1.transform.position = shipPosition1;
             shipObject2.transform.position = shipPosition2;
 
-            movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y, shipPosition1.z));
-            movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y, shipPosition2.z));
+            movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y + 0.05f, shipPosition1.z));
+            movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y + 0.05f, shipPosition2.z));
 
+            cannon.transform.GetChild(0).GetComponent<GatlingGun>().SetTower(tower.transform.position);
             cannon.transform.GetChild(0).GetComponent<GatlingGun>().enabled = true;
+           
 
         });
     }

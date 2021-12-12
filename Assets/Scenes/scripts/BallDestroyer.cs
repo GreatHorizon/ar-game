@@ -15,6 +15,7 @@ public class BallDestroyer : MonoBehaviour
         if (other.gameObject.tag == "Cannon")
         {
             Destroy(other.gameObject);
+            Destroy(this.transform.gameObject);
         }
         else
         {
