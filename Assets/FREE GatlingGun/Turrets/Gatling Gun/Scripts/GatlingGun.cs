@@ -77,7 +77,7 @@ public class GatlingGun : MonoBehaviour
         while (true)
         {
             GameObject bulletObj = Instantiate(bullet);
-            bulletObj.transform.position = go_barrel.position + new Vector3(0, 0, 0);
+            bulletObj.transform.position = go_barrel.position;
             SmoothMovement movement = bulletObj.GetComponent<SmoothMovement>();
             movement.Move(go_barrel.transform.forward);
             yield return new WaitForSeconds(0.7f);

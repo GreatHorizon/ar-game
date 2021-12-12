@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scenes.scripts;
+using UnityEngine.SceneManagement;
 
 public class StartButtonScript : MonoBehaviour
 {
@@ -36,11 +37,11 @@ public class StartButtonScript : MonoBehaviour
             var tower = Instantiate(towerPrefab);
             tower.transform.position = towerPositon;
             tower.transform.rotation = towerRotation;
-            tower.GetComponent<Destoyer>().SetText(text);
-            tower.GetComponent<Destoyer>().SetLoseText(closeText);
-
-            tower.GetComponent<Destoyer>().SetTower(tower);
-            tower.GetComponent<Destoyer>().SetCannon(cannon);
+            var childTower = tower.transform.GetChild(0);
+            childTower.GetComponent<Destoyer>().SetText(text);
+            childTower.GetComponent<Destoyer>().SetLoseText(closeText);
+            childTower.GetComponent<Destoyer>().SetTower(childTower.gameObject);
+            childTower.GetComponent<Destoyer>().SetCannon(cannon);
             
 
             //towerTop.GetComponent<SmoothRotation>().Move(cannon.transform);
@@ -67,6 +68,8 @@ public class StartButtonScript : MonoBehaviour
 
             movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y, shipPosition1.z));
             movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y, shipPosition2.z));
+
+            cannon.transform.GetChild(0).GetComponent<GatlingGun>().enabled = true;
 
         });
     }

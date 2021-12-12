@@ -49,9 +49,10 @@ namespace Assets.Scenes.scripts
             for (int i = 0; i < aliensAmount; i++)
             {
                 GameObject alienObj = Instantiate(alien);
+                
                 alienObj.transform.LookAt(tower.transform.position);
-
                 Vector3 towerPos = tower.transform.position;
+
                 SmoothMovement movement = alienObj.GetComponent<SmoothMovement>();
                 alienObj.transform.position = transform.position;
                 movement.Move(towerPos);

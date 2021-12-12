@@ -16,6 +16,10 @@ public class BallDestroyer : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        else
+        {
+            Debug.Log("djfklsjfklsdfjklsdfjklsd");
+        }
     }
 
     // Update is called once per frame
