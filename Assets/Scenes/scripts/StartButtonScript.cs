@@ -9,10 +9,20 @@ public class StartButtonScript : MonoBehaviour
 {
     [SerializeField]
     private Button button;
+
+
+    [SerializeField]
+    private GameObject endGame;
+
+    [SerializeField]
+    private Text winText;
     [SerializeField]
     private Text text;
     [SerializeField]
     private Text closeText;
+
+    [SerializeField]
+    private Button reloadButton;
 
     [SerializeField]
     private GameObject ship;
@@ -29,7 +39,13 @@ public class StartButtonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        reloadButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        });
+
         button.GetComponent<Button>().onClick.AddListener(() => {
+            button.GetComponent<Button>().gameObject.SetActive(false);                                                                              
             button.enabled = false;
             var towerObj = towerTarget.transform.GetChild(0).gameObject;
             Vector3 towerPositon = towerObj.transform.position;
@@ -41,11 +57,14 @@ public class StartButtonScript : MonoBehaviour
             tower.transform.rotation = towerRotation;
             var childTower = tower.transform.GetChild(0);
             childTower.GetComponent<Destoyer>().SetText(text);
-            childTower.GetComponent<Destoyer>().SetLoseText(closeText);
             childTower.GetComponent<Destoyer>().SetTower(childTower.gameObject);
 
             childTower.GetComponent<Destoyer>().SetCannon(cannon);
-            
+            childTower.GetComponent<Destoyer>().SetAliensAmount(text.GetComponent<AliensAmount>());
+            childTower.GetComponent<Destoyer>().SetEndGameObject(endGame);
+
+
+
 
             //towerTop.GetComponent<SmoothRotation>().Move(cannon.transform);
 
@@ -72,9 +91,8 @@ public class StartButtonScript : MonoBehaviour
             movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y + 0.05f, shipPosition1.z));
             movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y + 0.05f, shipPosition2.z));
 
-            cannon.transform.GetChild(0).GetComponent<GatlingGun>().SetTower(tower.transform.position);
+            cannon.transform.GetChild(0).GetComponent<GatlingGun>().SetTower(tower.transform.position);               
             cannon.transform.GetChild(0).GetComponent<GatlingGun>().enabled = true;
-           
 
         });
     }

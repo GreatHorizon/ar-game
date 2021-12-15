@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scenes.scripts;
+using UnityEngine.UI;
+
 public class GatlingGun : MonoBehaviour
 {
     // target the gun will aim at
     [SerializeField]
     Transform go_target;
 
+    [SerializeField]
+    Text amount;
+
+    [SerializeField]
+    GameObject _wonText;
 
 
     [SerializeField]
@@ -37,14 +44,14 @@ public class GatlingGun : MonoBehaviour
     void Start()
     {
         // Set the firing range distance
-        this.GetComponent<SphereCollider>().radius = firingRange;
+        //this.GetComponent<SphereCollider>().radius = firingRange;
     }
 
     void Update()
     {
         AimAndFire();
     }
-
+     
     void OnDrawGizmosSelected()
     {
         // Draw a red sphere at the transform's position to show the firing range
@@ -80,9 +87,13 @@ public class GatlingGun : MonoBehaviour
             GameObject bulletObj = Instantiate(bullet);
             bulletObj.transform.position = go_barrel.position;
             SmoothMovement movement = bulletObj.GetComponent<SmoothMovement>();
+            BulletDestoyer  bulletDestroyer = bulletObj.GetComponent<BulletDestoyer>();
+            bulletDestroyer.SetWonText(_wonText);
+            bulletDestroyer.SetAliensAmount(amount.GetComponent<AliensAmount>());
             movement.SetTower(_tower);
+            
             movement.Move(go_barrel.transform.forward);
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.1f);
         }
 
     }

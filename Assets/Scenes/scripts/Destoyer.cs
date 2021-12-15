@@ -12,10 +12,9 @@ public class Destoyer : MonoBehaviour
 
 
     private Text _text;
+    private AliensAmount _amount;
     bool isGameOver = false;
 
-    [SerializeField]
-    private Text _loseText;
 
     private GameObject _tower;
 
@@ -24,13 +23,15 @@ public class Destoyer : MonoBehaviour
     [SerializeField]
     private GameObject _ball;
 
+    private GameObject _endGame;
+
+    public void SetAliensAmount(AliensAmount amount)
+    {
+        _amount = amount;
+    }
     public void SetText(Text text)
     {
         _text = text;
-    }
-    public void SetLoseText(Text text)
-    {
-        _loseText = text;
     }
     public void SetTower(GameObject tower)
     {
@@ -39,6 +40,11 @@ public class Destoyer : MonoBehaviour
     public void SetCannon(GameObject cannon)
     {
         _cannon = cannon;
+    }
+
+    public void SetEndGameObject(GameObject obj)
+    {
+        _endGame = obj;
     }
 
     private void ShootToCannon()
@@ -54,6 +60,18 @@ public class Destoyer : MonoBehaviour
 
     }
 
+    void SetWinState()
+    {
+        _endGame.transform.Find("Restart").gameObject.SetActive(true);
+        _endGame.transform.Find("Win").gameObject.SetActive(true);
+    }
+
+    void SetLoseState()
+    {
+        _endGame.transform.Find("Restart").gameObject.SetActive(true);
+        _endGame.transform.Find("Lose").gameObject.SetActive(true);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Alien")
@@ -63,12 +81,18 @@ public class Destoyer : MonoBehaviour
             if (i <= 1 && !isGameOver)
             {
                 isGameOver = true;
-                _loseText.gameObject.SetActive(true);
+                SetLoseState();
                 ShootToCannon();
                 return;
             }
             if (i > 1)
             {
+                _amount.decreaseAmount();
+                if (_amount.getAmount() == 0)
+                {
+                    SetWinState();
+                }
+                Debug.Log(_amount.getAmount());
                 _text.text = (--i).ToString();
             }
         } 

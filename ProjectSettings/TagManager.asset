@@ -8,6 +8,7 @@ TagManager:
   - Alien
   - Cannon
   - Bullet
+  - AlienDying
   layers:
   - Default
   - TransparentFX

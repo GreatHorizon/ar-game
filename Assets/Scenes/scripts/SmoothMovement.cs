@@ -44,8 +44,6 @@ namespace Assets.Scenes.scripts
             {
                 //keep existing "y" rotation and set "x" and "z" rotation from intitalRotation
                 transform.position += new Vector3(transform.forward.x, _tower.y, transform.forward.z) * Time.deltaTime * _speed;
-                Debug.Log("position: " + transform.position.ToString());        
-                Debug.Log("forward: " + transform.forward.ToString());
             }
         }
 

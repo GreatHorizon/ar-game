@@ -11,10 +11,20 @@ public class BulletDestoyer : MonoBehaviour
     // Start is called before the first frame update
     
     private Animator _anim;
-    private int amount = 20;
 
-    [SerializeField]
-    private Text _wonText;
+    private GameObject _wonText;
+
+    private AliensAmount _amount;
+
+    public void SetAliensAmount(AliensAmount amount)
+    {
+        _amount = amount;
+    }
+
+    public void SetWonText(GameObject text)
+    {
+        _wonText = text;
+    }
 
     void Start()
     {
@@ -27,11 +37,17 @@ public class BulletDestoyer : MonoBehaviour
         
     }
 
+    void SetWinState()
+    {
+        _wonText.transform.Find("Restart").gameObject.SetActive(true);
+        _wonText.transform.Find("Win").gameObject.SetActive(true);    
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Cannon" && other.gameObject.tag != "Tower")
         {
-            if (other.gameObject.tag == "Alien")
+            if (other.gameObject.tag == "Alien" && other.gameObject.tag != "AlienDying")
             {
                 Debug.Log("here");
                 _anim = other.gameObject.GetComponent<Animator>();
@@ -41,11 +57,13 @@ public class BulletDestoyer : MonoBehaviour
 
                 Destroy(this.transform.gameObject);
                 Destroy(other.gameObject, _anim.GetCurrentAnimatorStateInfo(0).length + 1.5f);
-                amount--;
+                other.gameObject.tag = "AlienDying";
 
-                if (amount == 0)
+                _amount.decreaseAmount();
+                Debug.Log(_amount.getAmount());
+                if (_amount.getAmount() == 0)
                 {
-                    _wonText.gameObject.SetActive(true);
+                    SetWinState();
                 }
 
             }
