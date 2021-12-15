@@ -212,6 +212,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192784554}
   m_CullTransparentMesh: 1
+--- !u!1 &251992537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4676364152624737727, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+  m_PrefabInstance: {fileID: 971208599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &251992541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251992537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918170c09d88a7f47991f97e2ae42f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go_target: {fileID: 0}
+  amount: {fileID: 497553736}
+  _wonText: {fileID: 3418650}
+  bullet: {fileID: 8968246825017274501, guid: 67dff17232d45fc4a91d3c8e307a3c17, type: 3}
+  go_baseRotation: {fileID: 0}
+  go_GunBody: {fileID: 0}
+  go_barrel: {fileID: 934324287}
+  barrelRotationSpeed: 0
+  firingRange: 0
+  muzzelFlash: {fileID: 0}
+--- !u!65 &251992542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251992537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.085127, y: 2.246544, z: 2.0851274}
+  m_Center: {x: 0.0016921582, y: 1.0624615, z: -0.0009265016}
 --- !u!224 &282764749 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4640832432046554929, guid: 18d2d82c33890af41a75b480800fc0fc, type: 3}
@@ -807,35 +847,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!21 &811449314
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'castleMaterial
-
-    25598'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4bc1838d2e2340c78b0e47744fa6c80b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!43 &932942104
 Mesh:
   m_ObjectHideFlags: 0
@@ -1000,35 +1011,92 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1076270966
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &934324287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3918616321095854118, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+  m_PrefabInstance: {fileID: 971208599}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'cannon1Material
-
-    25482'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 808a3814a8d4490c85b11ac644195bd5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
+--- !u!1001 &971208599
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 702908529}
+    m_Modifications:
+    - target: {fileID: 1054751193219163647, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406565674458977196, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676364152624737727, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_Name
+      value: Turret Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676364152624737727, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_TagString
+      value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0008
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9933327
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.11528339
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -373.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
 --- !u!43 &1122684417
 Mesh:
   m_ObjectHideFlags: 0
@@ -1241,7 +1309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1076270966}
+  - {fileID: 2077363994}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1330,6 +1398,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1153041150
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'castleMaterial
+
+    68760'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4bc1838d2e2340c78b0e47744fa6c80b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!4 &1377300583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7577581363322079610, guid: c2c165c9d8576524595f1e995571d9cb, type: 3}
@@ -1574,6 +1671,10 @@ PrefabInstance:
     - target: {fileID: 6874221458043033449, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.02125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877314587103187597, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -1827,7 +1928,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 811449314}
+  - {fileID: 1153041150}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2043,6 +2144,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992269214}
   m_CullTransparentMesh: 1
+--- !u!21 &2077363994
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'cannon1Material
+
+    68628'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 808a3814a8d4490c85b11ac644195bd5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &2109731639
 GameObject:
   m_ObjectHideFlags: 0
