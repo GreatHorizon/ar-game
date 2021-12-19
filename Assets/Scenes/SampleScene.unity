@@ -224,7 +224,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251992537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 918170c09d88a7f47991f97e2ae42f62, type: 3}
   m_Name: 
@@ -480,6 +480,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &343090521
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'cannon1Material
+
+    23668'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 808a3814a8d4490c85b11ac644195bd5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &362390645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6151675855064490144, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
@@ -847,13 +876,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!43 &932942104
+--- !u!43 &851225889
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh16842
+  m_Name: ImageTargetMesh16866
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1036,12 +1065,16 @@ PrefabInstance:
       value: Turret Platform
       objectReference: {fileID: 0}
     - target: {fileID: 4676364152624737727, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676364152624737727, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
       propertyPath: m_TagString
       value: Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8556436541948796844, guid: 3bcfcf702957edd49b4bd39ce90f24dd, type: 3}
       propertyPath: m_LocalScale.x
@@ -1289,7 +1322,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127292644}
-  m_Mesh: {fileID: 932942104}
+  m_Mesh: {fileID: 851225889}
 --- !u!23 &1127292646
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1309,7 +1342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2077363994}
+  - {fileID: 343090521}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1398,35 +1431,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1153041150
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'castleMaterial
-
-    68760'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4bc1838d2e2340c78b0e47744fa6c80b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!4 &1377300583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7577581363322079610, guid: c2c165c9d8576524595f1e995571d9cb, type: 3}
@@ -1621,6 +1625,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6151675855064490145, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151675855064490145, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
@@ -1661,6 +1669,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6874221458043033449, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874221458043033449, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.02125
       objectReference: {fileID: 0}
@@ -1675,6 +1687,10 @@ PrefabInstance:
     - target: {fileID: 6877314587103187597, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060106355471779766, guid: 61173c92d8a0a2e41bda2712cbf418f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -1928,7 +1944,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1153041150}
+  - {fileID: 2104962844}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2144,16 +2160,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992269214}
   m_CullTransparentMesh: 1
---- !u!21 &2077363994
+--- !u!21 &2104962844
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'cannon1Material
+  m_Name: 'castleMaterial
 
-    68628'
+    23832'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2166,7 +2182,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 808a3814a8d4490c85b11ac644195bd5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4bc1838d2e2340c78b0e47744fa6c80b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []

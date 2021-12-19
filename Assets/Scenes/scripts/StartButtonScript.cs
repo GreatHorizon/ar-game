@@ -91,8 +91,8 @@ public class StartButtonScript : MonoBehaviour
             movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y + 0.05f, shipPosition1.z));
             movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y + 0.05f, shipPosition2.z));
 
-            cannon.transform.GetChild(0).GetComponent<GatlingGun>().SetTower(tower.transform.position);               
-            cannon.transform.GetChild(0).GetComponent<GatlingGun>().enabled = true;
+            cannon.transform.GetChild(1).GetComponent<GatlingGun>().SetTower(tower.transform.position);               
+            cannon.transform.GetChild(1).GetComponent<GatlingGun>().enabled = true;
 
         });
     }

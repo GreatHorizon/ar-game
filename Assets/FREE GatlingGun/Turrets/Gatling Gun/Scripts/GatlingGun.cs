@@ -93,7 +93,7 @@ public class GatlingGun : MonoBehaviour
             movement.SetTower(_tower);
             
             movement.Move(go_barrel.transform.forward);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.6f);
         }
 
     }
