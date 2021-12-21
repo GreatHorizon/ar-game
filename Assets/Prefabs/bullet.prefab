@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfdf2331db51c2448e3f82a8d59acda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wonText: {fileID: 5326004522160355052, guid: 585767aaed5463e4aaae59b10ffa8526, type: 3}
+  _winSound: {fileID: 7242500746109299304, guid: 62d903575184df345a5b1b6d653d243a, type: 3}
+  _dieSound: {fileID: 4634937669130805143, guid: 8e677a0f1a3e9c54f8215f350a445525, type: 3}
 --- !u!114 &6061494566964530443
 MonoBehaviour:
   m_ObjectHideFlags: 0

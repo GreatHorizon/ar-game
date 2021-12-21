@@ -13,8 +13,15 @@ namespace Assets.Scenes.scripts
     {
         public bool isMooving { get; set; } = false;
 
+        [SerializeField]
+        AudioSource _alienShipAudio;
+
         Transform target;
         Vector3 b;
+
+
+        public bool isAliensWalking = false;
+
 
         [SerializeField]
         private GameObject alien;
@@ -32,6 +39,17 @@ namespace Assets.Scenes.scripts
             this.tower = tower;
         }
 
+        public void SetAndPlayAudio(AudioSource audio)
+        {
+            _alienShipAudio = audio;
+            _alienShipAudio.Play();
+        }
+
+        public bool IsAliensWalking()
+        {
+            return isAliensWalking;
+        }
+
         public void Update()
         {
             if (target.position != b)
@@ -40,6 +58,8 @@ namespace Assets.Scenes.scripts
                 float newPositionY = (float)Mathf.Lerp(target.position.y, b.y, 5 * 0.01f);
                 target.position = new Vector3(newPositionX, newPositionY, b.z);
             } else if (!started){
+                if (_alienShipAudio != null ) _alienShipAudio.Stop();
+                isAliensWalking = true;
                 StartCoroutine(SpawnAliens());
             }
         }

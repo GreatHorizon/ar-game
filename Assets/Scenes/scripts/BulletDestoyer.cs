@@ -14,6 +14,14 @@ public class BulletDestoyer : MonoBehaviour
 
     private GameObject _wonText;
 
+    [SerializeField]
+    private GameObject _winSound;
+
+
+    [SerializeField]
+    private GameObject _dieSound;
+    private GameObject _gun;
+
     private AliensAmount _amount;
 
     public void SetAliensAmount(AliensAmount amount)
@@ -37,6 +45,13 @@ public class BulletDestoyer : MonoBehaviour
         
     }
 
+    public void SetGunObj(GameObject gun)
+    {
+        _gun = gun;
+    }
+
+
+
     void SetWinState()
     {
         _wonText.transform.Find("Restart").gameObject.SetActive(true);
@@ -57,6 +72,7 @@ public class BulletDestoyer : MonoBehaviour
 
                 Destroy(this.transform.gameObject);
                 Destroy(other.gameObject, _anim.GetCurrentAnimatorStateInfo(0).length + 1.5f);
+                Instantiate(_dieSound).GetComponent<AudioSource>().Play();
                 other.gameObject.tag = "AlienDying";
 
                 _amount.decreaseAmount();
@@ -64,6 +80,8 @@ public class BulletDestoyer : MonoBehaviour
                 if (_amount.getAmount() == 0)
                 {
                     SetWinState();
+                    _gun.GetComponent<GatlingGun>().StopCoroutine();
+                    Instantiate(_winSound).GetComponent<AudioSource>().Play();
                 }
 
             }

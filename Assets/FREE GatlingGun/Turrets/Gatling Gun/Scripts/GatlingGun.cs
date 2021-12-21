@@ -29,6 +29,7 @@ public class GatlingGun : MonoBehaviour
     // Gun barrel rotation
     public float barrelRotationSpeed;
     float currentRotationSpeed;
+    private GameObject ship;
 
     // Distance the turret can aim and fire from
     public float firingRange;
@@ -59,6 +60,8 @@ public class GatlingGun : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, firingRange);
     }
 
+    private Coroutine _spawn;
+
     // Detect an Enemy, aim and fire
     void OnTriggerEnter(Collider other)
     {
@@ -77,6 +80,11 @@ public class GatlingGun : MonoBehaviour
             canFire = false;
         }
     }
+    public void SetShip(GameObject obj)
+    {
+        ship = obj;
+    }
+
 
 
     public IEnumerator SpawnBulletWithDelay()
@@ -84,16 +92,19 @@ public class GatlingGun : MonoBehaviour
         started = true;
         while (true)
         {
-            GameObject bulletObj = Instantiate(bullet);
-            bulletObj.transform.position = go_barrel.position;
-            SmoothMovement movement = bulletObj.GetComponent<SmoothMovement>();
-            BulletDestoyer  bulletDestroyer = bulletObj.GetComponent<BulletDestoyer>();
-            bulletDestroyer.SetWonText(_wonText);
-            bulletDestroyer.SetAliensAmount(amount.GetComponent<AliensAmount>());
-            movement.SetTower(_tower);
-            
-            movement.Move(go_barrel.transform.forward);
-            yield return new WaitForSeconds(0.6f);
+                GameObject bulletObj = Instantiate(bullet);
+                bulletObj.transform.position = go_barrel.position;
+
+                this.GetComponent<AudioSource>().Play();
+                SmoothMovement movement = bulletObj.GetComponent<SmoothMovement>();
+                BulletDestoyer bulletDestroyer = bulletObj.GetComponent<BulletDestoyer>();
+                bulletDestroyer.SetWonText(_wonText);
+                bulletDestroyer.SetAliensAmount(amount.GetComponent<AliensAmount>());
+                bulletDestroyer.SetGunObj(this.gameObject);
+                movement.SetTower(_tower);
+
+                movement.Move(go_barrel.transform.forward);
+                yield return new WaitForSeconds(0.6f);
         }
 
     }
@@ -103,14 +114,19 @@ public class GatlingGun : MonoBehaviour
         _tower = tower;
     }
 
+    public void StopCoroutine()
+    {
+        StopCoroutine(_spawn);
+    }
+
     void AimAndFire()
     {
         // Gun barrel rotation
         //go_barrel.transform.Rotate(0, 0, currentRotationSpeed * Time.deltaTime);
         
         
-        if (!started) {
-            StartCoroutine(SpawnBulletWithDelay());
+        if (!started && ship.GetComponent<SmoothMovementShip>().isAliensWalking) {
+            _spawn = StartCoroutine(SpawnBulletWithDelay());
         }
 
 

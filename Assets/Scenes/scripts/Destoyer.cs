@@ -24,6 +24,8 @@ public class Destoyer : MonoBehaviour
     private GameObject _ball;
 
     private GameObject _endGame;
+    private AudioSource _loseSound;
+    private AudioSource _winSound;
 
     public void SetAliensAmount(AliensAmount amount)
     {
@@ -45,6 +47,15 @@ public class Destoyer : MonoBehaviour
     public void SetEndGameObject(GameObject obj)
     {
         _endGame = obj;
+    }
+
+    public void SetLoseSound(AudioSource audio)
+    {
+        _loseSound = audio;
+    }
+    public void SetWinSound(AudioSource audio)
+    {
+        _winSound = audio;
     }
 
     private void ShootToCannon()
@@ -81,6 +92,8 @@ public class Destoyer : MonoBehaviour
             if (i <= 1 && !isGameOver)
             {
                 isGameOver = true;
+                _loseSound.Play();
+
                 SetLoseState();
                 ShootToCannon();
                 return;
@@ -90,7 +103,9 @@ public class Destoyer : MonoBehaviour
                 _amount.decreaseAmount();
                 if (_amount.getAmount() == 0)
                 {
+                    _winSound.Play();
                     SetWinState();
+                    _cannon.GetComponent<GatlingGun>().StopCoroutine();
                 }
                 Debug.Log(_amount.getAmount());
                 _text.text = (--i).ToString();

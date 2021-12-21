@@ -15,6 +15,15 @@ public class StartButtonScript : MonoBehaviour
     private GameObject endGame;
 
     [SerializeField]
+    private GameObject _loseSound;
+
+    [SerializeField]
+    private GameObject _winSound;
+
+    [SerializeField]
+    private GameObject _alienShipAudio;
+
+    [SerializeField]
     private Text winText;
     [SerializeField]
     private Text text;
@@ -59,9 +68,11 @@ public class StartButtonScript : MonoBehaviour
             childTower.GetComponent<Destoyer>().SetText(text);
             childTower.GetComponent<Destoyer>().SetTower(childTower.gameObject);
 
-            childTower.GetComponent<Destoyer>().SetCannon(cannon);
             childTower.GetComponent<Destoyer>().SetAliensAmount(text.GetComponent<AliensAmount>());
             childTower.GetComponent<Destoyer>().SetEndGameObject(endGame);
+            childTower.GetComponent<Destoyer>().SetLoseSound(Instantiate(_loseSound).GetComponent<AudioSource>());
+            childTower.GetComponent<Destoyer>().SetWinSound(Instantiate(_winSound).GetComponent<AudioSource>());
+
 
 
 
@@ -89,11 +100,14 @@ public class StartButtonScript : MonoBehaviour
             shipObject2.transform.position = shipPosition2;
 
             movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y + 0.05f, shipPosition1.z));
+            movementShip1.SetAndPlayAudio(Instantiate(_alienShipAudio).GetComponent<AudioSource>());
+            cannon.transform.Find("Turret Platform").GetComponent<GatlingGun>().SetShip(shipObject1);
             movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y + 0.05f, shipPosition2.z));
+
 
             cannon.transform.GetChild(1).GetComponent<GatlingGun>().SetTower(tower.transform.position);               
             cannon.transform.GetChild(1).GetComponent<GatlingGun>().enabled = true;
-
+            childTower.GetComponent<Destoyer>().SetCannon(cannon.transform.GetChild(1).gameObject);
         });
     }
 
