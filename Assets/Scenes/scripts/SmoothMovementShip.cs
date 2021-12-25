@@ -34,6 +34,11 @@ namespace Assets.Scenes.scripts
             this.target = target;
             this.b = b;
         }
+
+        public void SetAliensAmount(int amount)
+        {
+            aliensAmount = amount;
+        }
         public void PassTower(GameObject tower)
         {
             this.tower = tower;

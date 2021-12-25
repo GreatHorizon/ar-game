@@ -39,6 +39,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7577581363322079610}
     m_Modifications:
+    - target: {fileID: 8464113025502586281, guid: 13a9c1db1d0f72844997ef18cc2bc2c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87294f02d9437b8479f6d772f8b00a8d, type: 2}
     - target: {fileID: 8464113025502586282, guid: 13a9c1db1d0f72844997ef18cc2bc2c6, type: 3}
       propertyPath: m_Name
       value: Cube
@@ -231,5 +235,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdc7c4ffb8a8364287870e92051726e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loseText: {fileID: 2047356020297647899, guid: 8422fa891062aec46bb080fc1ff92a1c, type: 3}
   _ball: {fileID: 862653708987034596, guid: 64471a542defe3f4ead15cdf1b9758e9, type: 3}

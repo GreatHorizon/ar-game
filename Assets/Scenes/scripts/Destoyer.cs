@@ -14,6 +14,7 @@ public class Destoyer : MonoBehaviour
     private Text _text;
     private AliensAmount _amount;
     bool isGameOver = false;
+    private AliensAmount _aliensAmount;
 
 
     private GameObject _tower;
@@ -27,7 +28,7 @@ public class Destoyer : MonoBehaviour
     private AudioSource _loseSound;
     private AudioSource _winSound;
 
-    public void SetAliensAmount(AliensAmount amount)
+    public void SetAliensAmountForTower(AliensAmount amount)
     {
         _amount = amount;
     }
@@ -71,6 +72,11 @@ public class Destoyer : MonoBehaviour
 
     }
 
+    public void SetAliensAmount(AliensAmount text)
+    {
+        _aliensAmount = text;
+    }
+
     void SetWinState()
     {
         _endGame.transform.Find("Restart").gameObject.SetActive(true);
@@ -89,7 +95,20 @@ public class Destoyer : MonoBehaviour
         {
             Destroy(other.gameObject);
             int i = Convert.ToInt32(_text.text);
-            if (i <= 1 && !isGameOver)
+            if (i > 0)
+            {
+                _amount.decreaseAmount();
+                _aliensAmount.decreaseAmount();
+                if (_aliensAmount.getAmount() == 0)
+                {
+                    _winSound.Play();
+                    SetWinState();
+                    _cannon.GetComponent<GatlingGun>().StopCoroutine();
+                }
+                Debug.Log(_amount.getAmount());
+                //_text.text = (--i).ToString();
+            }
+            if (_amount.getAmount() == 0 && !isGameOver)
             {
                 isGameOver = true;
                 _loseSound.Play();
@@ -97,18 +116,6 @@ public class Destoyer : MonoBehaviour
                 SetLoseState();
                 ShootToCannon();
                 return;
-            }
-            if (i > 1)
-            {
-                _amount.decreaseAmount();
-                if (_amount.getAmount() == 0)
-                {
-                    _winSound.Play();
-                    SetWinState();
-                    _cannon.GetComponent<GatlingGun>().StopCoroutine();
-                }
-                Debug.Log(_amount.getAmount());
-                _text.text = (--i).ToString();
             }
         } 
         else if (other.gameObject.tag == "Bullet")

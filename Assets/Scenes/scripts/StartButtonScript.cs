@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scenes.scripts;
 using UnityEngine.SceneManagement;
+using System;
 
 public class StartButtonScript : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class StartButtonScript : MonoBehaviour
 
     [SerializeField]
     private GameObject endGame;
+
+    [SerializeField]
+    private Text _aliensAmount;
 
     [SerializeField]
     private GameObject _loseSound;
@@ -68,7 +72,8 @@ public class StartButtonScript : MonoBehaviour
             childTower.GetComponent<Destoyer>().SetText(text);
             childTower.GetComponent<Destoyer>().SetTower(childTower.gameObject);
 
-            childTower.GetComponent<Destoyer>().SetAliensAmount(text.GetComponent<AliensAmount>());
+            childTower.GetComponent<Destoyer>().SetAliensAmountForTower(text.GetComponent<AliensAmount>());
+            childTower.GetComponent<Destoyer>().SetAliensAmount(_aliensAmount.GetComponent<AliensAmount>());
             childTower.GetComponent<Destoyer>().SetEndGameObject(endGame);
             childTower.GetComponent<Destoyer>().SetLoseSound(Instantiate(_loseSound).GetComponent<AudioSource>());
             childTower.GetComponent<Destoyer>().SetWinSound(Instantiate(_winSound).GetComponent<AudioSource>());
@@ -102,7 +107,12 @@ public class StartButtonScript : MonoBehaviour
             movementShip1.Move(shipObject1.transform, new Vector3(shipPosition1.x, tower.transform.position.y + 0.05f, shipPosition1.z));
             movementShip1.SetAndPlayAudio(Instantiate(_alienShipAudio).GetComponent<AudioSource>());
             cannon.transform.Find("Turret Platform").GetComponent<GatlingGun>().SetShip(shipObject1);
+
+            int rem = Convert.ToInt32(_aliensAmount.text) % 2;
+            movementShip1.SetAliensAmount(Convert.ToInt32(_aliensAmount.text) / 2 + rem);
+            movementShip2.SetAliensAmount(Convert.ToInt32(_aliensAmount.text) / 2);
             movementShip2.Move(shipObject2.transform, new Vector3(shipPosition2.x, tower.transform.position.y + 0.05f, shipPosition2.z));
+
 
 
             cannon.transform.GetChild(1).GetComponent<GatlingGun>().SetTower(tower.transform.position);               
