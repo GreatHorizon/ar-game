@@ -14,7 +14,6 @@ public class Destoyer : MonoBehaviour
     private Text _text;
     private AliensAmount _amount;
     bool isGameOver = false;
-    private AliensAmount _aliensAmount;
 
 
     private GameObject _tower;
@@ -72,10 +71,6 @@ public class Destoyer : MonoBehaviour
 
     }
 
-    public void SetAliensAmount(AliensAmount text)
-    {
-        _aliensAmount = text;
-    }
 
     void SetWinState()
     {
@@ -94,12 +89,30 @@ public class Destoyer : MonoBehaviour
         if (other.gameObject.tag == "Alien")
         {
             Destroy(other.gameObject);
-            int i = Convert.ToInt32(_text.text);
+            if (_amount.getAmount() > _amount.GetKilledAmount())
+            {
+                _amount.decreaseAmount();
+
+            }
+            else
+            {
+                return;
+            }
+            if (_amount.getAmount() == _amount.GetKilledAmount())
+            {
+                isGameOver = true;
+                _loseSound.Play();
+
+                SetLoseState();
+                ShootToCannon();
+                return;
+            }
+/*            int i = Convert.ToInt32(_text.text);
             if (i > 0)
             {
                 _amount.decreaseAmount();
                 _aliensAmount.decreaseAmount();
-                if (_aliensAmount.getAmount() == 0)
+                if (_aliensAmount.getAmount() == _aliensAmount.GetKilledAmount())
                 {
                     _winSound.Play();
                     SetWinState();
@@ -116,7 +129,7 @@ public class Destoyer : MonoBehaviour
                 SetLoseState();
                 ShootToCannon();
                 return;
-            }
+            }*/
         } 
         else if (other.gameObject.tag == "Bullet")
         {

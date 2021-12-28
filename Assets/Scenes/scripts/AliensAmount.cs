@@ -7,23 +7,36 @@ using UnityEngine.UI;
 
 public class AliensAmount : MonoBehaviour
 {
+    [SerializeField]
+    private Color _color;
     private Text text;
+    private int _amount;
+    private int _killed = 0;
 
+    public void SetColor(Color color)
+    {
+        _color = color;
+    }
     public int getAmount()
     {
-        return Convert.ToInt32(text.text);
+        return _amount;
+    }
+    public int GetKilledAmount()
+    {
+        return _killed;
     }
 
     public void decreaseAmount()
     {
-        int currAmount = Convert.ToInt32(text.text);
-        text.text = Convert.ToString(--currAmount);
+        gameObject.transform.GetChild(_killed).GetComponent<Image>().color = _color;
+
+        _killed++;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<Text>();
+        _amount = gameObject.transform.childCount;
     }
 
     // Update is called once per frame

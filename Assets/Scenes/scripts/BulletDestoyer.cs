@@ -77,7 +77,7 @@ public class BulletDestoyer : MonoBehaviour
 
                 _amount.decreaseAmount();
                 Debug.Log(_amount.getAmount());
-                if (_amount.getAmount() == 0)
+                if (_amount.getAmount() == _amount.GetKilledAmount())
                 {
                     SetWinState();
                     _gun.GetComponent<GatlingGun>().StopCoroutine();

@@ -30,7 +30,7 @@ public class StartButtonScript : MonoBehaviour
     [SerializeField]
     private Text winText;
     [SerializeField]
-    private Text text;
+    private GameObject _loseAmount;
     [SerializeField]
     private Text closeText;
 
@@ -69,11 +69,11 @@ public class StartButtonScript : MonoBehaviour
             tower.transform.position = towerPositon;
             tower.transform.rotation = towerRotation;
             var childTower = tower.transform.GetChild(0);
-            childTower.GetComponent<Destoyer>().SetText(text);
+            //childTower.GetComponent<Destoyer>().SetText(text);
             childTower.GetComponent<Destoyer>().SetTower(childTower.gameObject);
 
-            childTower.GetComponent<Destoyer>().SetAliensAmountForTower(text.GetComponent<AliensAmount>());
-            childTower.GetComponent<Destoyer>().SetAliensAmount(_aliensAmount.GetComponent<AliensAmount>());
+            childTower.GetComponent<Destoyer>().SetAliensAmountForTower(_loseAmount.GetComponent<AliensAmount>());
+            _loseAmount.GetComponent<AliensAmount>().SetColor(new Color(1, 0.2f, 0));
             childTower.GetComponent<Destoyer>().SetEndGameObject(endGame);
             childTower.GetComponent<Destoyer>().SetLoseSound(Instantiate(_loseSound).GetComponent<AudioSource>());
             childTower.GetComponent<Destoyer>().SetWinSound(Instantiate(_winSound).GetComponent<AudioSource>());
