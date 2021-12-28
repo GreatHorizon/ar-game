@@ -44,7 +44,7 @@ public class GatlingGun : MonoBehaviour
     
     void Start()
     {
-        amount.GetComponent<AliensAmount>().SetColor(new Color(0.4f, 1, 0));
+        amount.GetComponent<AliensAmount>().SetColor(new Color(1, 0.2f, 0));
         // Set the firing range distance
         //this.GetComponent<SphereCollider>().radius = firingRange;
     }
